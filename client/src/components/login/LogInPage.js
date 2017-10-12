@@ -27,9 +27,10 @@ getAllUsers = async () => {
             <div>
             <h1>Log-In</h1>
             <h3>Please Select an Existing User</h3>
+            
             {this.state.users.map(user => {
-              return (<Link key={user._id} to={`/idea/${user._id}`}>{user.userName}</Link>)
-            })}
+              return (<div><Link key={user._id} to={`/idea/${user._id}`}>{user.userName}</Link></div>)
+            })} 
             <SignUpForm />
           </div>
         );
