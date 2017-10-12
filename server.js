@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const UsersController = require("./routes/UsersController");
 
 const app = express();
 
@@ -19,8 +20,10 @@ connection.on('error', (err) => {
 }); 
 
 //inject middleware
-app.use(bodyParser.json())
-app.use(express.static(`${__dirname}/client/build`))
+app.use(bodyParser.json());
+app.use(express.static(`${__dirname}/client/build`));
+//this has to be below bodyParser and static
+app.use("/api/users", UsersController);
 
 app.get("/", (request, response) => {
     response.sendFile(`${__dirname}/client/build/index.html`)
