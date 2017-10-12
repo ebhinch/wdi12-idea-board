@@ -20,9 +20,10 @@ connection.on('error', (err) => {
 
 //inject middleware
 app.use(bodyParser.json())
+app.use(express.static(`${__dirname}/client/build`))
 
 app.get("/", (request, response) => {
-    response.send("hello world")
+    response.sendFile(`${__dirname}/client/build/index.html`)
 })
 
 
