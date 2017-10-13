@@ -15,6 +15,17 @@ router.get("/", async (request, response) => {
     }
 })
 
+router.get("/:id", async (request, response) => {
+    try {
+        const user = await UserModel.findById(request.params.id)
+        //will send back json
+        response.json(user)
+    }
+    catch (error) {
+        response.send(error)
+    }
+})
+
 router.post("/", async (request, response) => {
     try {
     //create new instance of user

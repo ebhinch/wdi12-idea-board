@@ -21,9 +21,8 @@ const IdeaSchema = new Schema({
 //define user schema
 const UserSchema = new Schema({
     userName: {
-        type: String,
-        unique: true
-    },
+        type: String
+        },
     password: {
         type: String
     },
